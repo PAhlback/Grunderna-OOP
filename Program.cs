@@ -4,75 +4,7 @@ namespace Grunderna_OOP
 {
     internal class Program
     {
-        class Shape
-        {
-            public double Pi = Math.PI;
-            public double Area;
-
-            public double GetArea()
-            {
-                return Area;
-            }
-        }
-
-        class Circle : Shape
-        {
-            public int Radius;
-
-            public void SetCircle(Circle c)
-            {
-                Console.Write("Enter radius: ");
-                c.Radius = int.Parse(Console.ReadLine());
-                c.Area = Pi * (Radius * Radius);
-            }
-            public void PrintCircle(Circle c)
-            {
-                Console.WriteLine($"Radius: {c.Radius}");
-                Console.WriteLine($"Area: {c.Area}");
-            }
-        }
-
-        class Sphere : Shape
-        {
-            public double Radius;
-            public double Circumference;
-            public double Volume;
-            public void SetSphere(Sphere s)
-            {
-                Console.Write("Enter circumference: ");
-                s.Circumference = double.Parse(Console.ReadLine());
-                s.Radius = s.Circumference / (2 * Pi);
-                s.Volume = (4.0 / 3) * Pi * Math.Pow(3, s.Radius);
-            }
-            public void PrintSphere(Sphere s)
-            {
-                Console.WriteLine($"Circumference: {s.Circumference}");
-                Console.WriteLine($"Radius: {s.Radius}");
-                Console.WriteLine($"Volume: {s.Volume}");
-            }
-        }
-
-
-        class Triangle : Shape
-        {
-            public int Base;
-            public int Height;
-            public void SetTriangle(Triangle t)
-            {
-                Console.Write("Enter base: ");
-                t.Base = int.Parse(Console.ReadLine());
-                Console.Write("Enter height: ");
-                t.Height = int.Parse(Console.ReadLine());
-                t.Area = (t.Base * t.Height) / 2.0;
-            }
-            public void PrintTriangle(Triangle t)
-            {
-                Console.WriteLine($"Base: {t.Base}");
-                Console.WriteLine($"Height: {t.Height}");
-                Console.WriteLine($"Area: {t.Area}");
-            }
-        }
-
+        // Method for choosing which shape to create. VS told me to use static, because otherwise I would have had to pass a parameter thorugh on line 46(?).
         public static int GetSelection()
         {
             Console.WriteLine("Choose shape: ");
@@ -106,13 +38,16 @@ namespace Grunderna_OOP
             }
 
             return choice;
-
         }
 
         static void Main(string[] args)
         {
+            // Gets input from user regarding which object to create (circle, sphere or triangle).
             int selection = GetSelection();
 
+            // Was unable to create objects inside the if-statement and then use it outside (tried with a temporary object "Shape s;" which was then instantiated
+            // as a specifik shape.
+            // Instead, I made an object of each and then ran the methods for the one that was chosen.
             Circle c = new Circle();
             Sphere s = new Sphere();
             Triangle t = new Triangle();
@@ -134,6 +69,7 @@ namespace Grunderna_OOP
                 t.PrintTriangle(t);
             }
 
+            // Checks if the user wants to go again.
             Console.WriteLine();
             Console.Write("Go again? (y/n): ");
             char yesNo = char.Parse(Console.ReadLine());
