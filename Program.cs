@@ -46,8 +46,8 @@ namespace Grunderna_OOP
             int selection = GetSelection();
 
             // Was unable to create objects inside the if-statement and then use it outside (tried with a temporary object "Shape s;" which was then instantiated
-            // as a specifik shape.
-            // Instead, I made an object of each and then ran the methods for the one that was chosen.
+            // as a specific shape.
+            // Instead, I made an object of each and then ran the methods for the one that was chosen. 
             Circle c = new Circle();
             Sphere s = new Sphere();
             Triangle t = new Triangle();
