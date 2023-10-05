@@ -4,7 +4,7 @@ namespace Grunderna_OOP
 {
     internal class Program
     {
-        // Method for choosing which shape to create. VS told me to use static, because otherwise I would have had to pass a parameter thorugh on line 46(?).
+        // Method for choosing which shape to create. VS told me to use static, because otherwise I would have had to pass a parameter through on line 46(?).
         public static int GetSelection()
         {
             Console.WriteLine("Choose shape: ");
